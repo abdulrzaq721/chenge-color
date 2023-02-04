@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>p1</title>
+    
+</head>
+<body>
+    <style>
+    button {
+   display: block;
+   margin: 0 auto;
+   width: 100px;
+   height: 50px;
+            }
+
+    h1 {
+   text-align: center;
+   margin-bottom: 20px;
+        }
+    </style>
+<h1 id="myH1"></h1>
+<button id="myButton">Change</button>
+<script>
+  var button = document.getElementById("myButton");
+  button.style.position = "absolute";
+  button.style.top = "50%";
+  button.style.left = "50%";
+  button.style.transform = "translate(-50%, -50%)";
+  let myElement=document.getElementById("myH1")
+  
+  button.addEventListener("click", function() {
+    if (myElement.classList.contains("color")){
+        myElement.innerHTML=""
+    }
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    document.body.style.backgroundColor = color;
+    myElement.className="color"
+    let myText=document.createTextNode(color)
+    myElement.appendChild(myText)
+    document.body.appendChild(myElement)
+  });
+</script>
+</body>
+</html>
